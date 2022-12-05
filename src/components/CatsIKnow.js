@@ -4,10 +4,10 @@ import { ApplicationViews } from "./views/ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
-import "./KandyKorner.css"
+import "./CatsIKnow.css"
 
 
-export const KandyKorner = () => {
+export const CatsIKnow = () => {
 	return <Routes>
 		<Route path="/login" element={<Login />} />
 		<Route path="/register" element={<Register />} />
