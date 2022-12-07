@@ -23,7 +23,7 @@ export const CatDetails = () => {
     //ToDo: Function for delete the cat
     const deleteButton = () => {
         return <button onClick={() => {
-        fetch(`http://localhost:8088/cats?id=${catId}`, {
+        fetch(`http://localhost:8088/cats/${catId}`, {
         method: "DELETE",
     })
         .then(() => {
@@ -35,7 +35,7 @@ export const CatDetails = () => {
 
     return <>
         <div className="profileButtons">
-        <button onClick={() => navigate("cat/:catId/edit")}>Edit Cat</button>
+        <button onClick={() => navigate(`/cat/${cat.id}/edit`)}>Edit Cat</button>
         {deleteButton()}
         </div>
         <article className="catProfile">

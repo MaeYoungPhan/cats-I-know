@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 export const UpdateCat = ( {catObject} ) => {
@@ -8,8 +7,6 @@ export const UpdateCat = ( {catObject} ) => {
         outReason: catObject.outReason,
         notes: catObject.notes,
     })
-
-    const navigate = useNavigate()
 
     const handleSaveButtonClick = (e) => {
         e.preventDefault()
@@ -23,11 +20,12 @@ export const UpdateCat = ( {catObject} ) => {
         })
         .then (res => res.json())
         .then(() => {
-            navigate(`/cat/${catObject.id}`)
+            window.alert("Updates successfully saved")
         })
     }
 
     return (
+        <>
         <form className="catProfileForm">
             <fieldset>
                 <div className="form-group">
@@ -85,6 +83,7 @@ export const UpdateCat = ( {catObject} ) => {
                 Save Updates
             </button>
         </form>
+        </>
     )
 
 }
