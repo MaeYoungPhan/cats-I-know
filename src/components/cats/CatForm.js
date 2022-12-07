@@ -4,7 +4,9 @@ import { useEffect, useState } from "react"
 export const CatForm = () => {
     const [colonies, setColonies] = useState([])
     const [filteredColonies, setFiltered] = useState([])
-    const [newColonyCat, updateNewColonyCat] = useState({})
+    const [newColonyCat, updateNewColonyCat] = useState({
+        colonyId: 0
+    })
     const [newCat, updateNewCat] = useState({
             name: "",
             foundDate: "",
@@ -58,11 +60,6 @@ export const CatForm = () => {
             image: newCat.image
         }
 
-        const colonyCatToSendToAPI = {
-            catId: newColonyCat.catId,
-            colonyId: newColonyCat.colonyId
-        }
-
         return fetch(`http://localhost:8088/cats`, {
             method: "POST",
             headers: {
@@ -71,19 +68,24 @@ export const CatForm = () => {
             body: JSON.stringify(catToSendToAPI)
         })
         .then(res => res.json())
-        .then(cat => {
-            newColonyCat.catId = cat.id
-            return fetch(`http://localhost:8088/colonyCats`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(colonyCatToSendToAPI)
+        .then(catResData => {
+            if (catResData.hasOwnProperty("id") && newColonyCat.colonyId > 0) {
+                return fetch(`http://localhost:8088/colonyCats`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                catId: catResData.id,
+                colonyId: newColonyCat.colonyId
             })
+            })
+            }
+            else {
+                navigate("/cats")
+            }
         })
-        .then(() => {
-            navigate("/cats")
-        })
+        
     }
 
     return (
@@ -112,7 +114,7 @@ export const CatForm = () => {
                     <label htmlFor="date">Found Date:</label>
                     <input
                         required autoFocus
-                        type="datetime-local"
+                        type="date"
                         className="form-control"
                         placeholder="MM/DD/YYYY"
                         value={newCat.foundDate}
