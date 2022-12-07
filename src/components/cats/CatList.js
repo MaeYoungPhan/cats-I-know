@@ -58,6 +58,7 @@ export const CatList = ( {searchTermState} ) => {
                 return <div className="cat" key={cat.id}>
                     <img width="150" src={cat.image} />
                     <Link to={`/cat/${cat.id}`}>{cat.name}</Link>
+                    <footer>Found: {cat.foundDate}</footer>
                 </div>}
             )
         }
