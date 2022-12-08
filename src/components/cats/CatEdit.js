@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 export const CatEdit = () => {
     const {catId} = useParams()
     const [colonies, setColonies] = useState([])
-    const [colonyCats, setColonyCats] = useState([])
+    const [currentCatColony, setCurrentColony] = useState([])
     const [filteredColonies, setFiltered] = useState([])
     const [colonyCat, setColonyCat] = useState({
         colonyId: 0
@@ -35,10 +35,13 @@ export const CatEdit = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/colonyCats?_expand=colony`)
+            fetch(`http://localhost:8088/colonyCats?_expand=colony&catId=${catId}`)
             .then(res => res.json())
-            .then((colonyCatsArr) => setColonyCats(colonyCatsArr))
-        }, 
+            .then((colonyCatArr) => {
+            const singleColony = colonyCatArr[0]
+            setCurrentColony(singleColony)
+        })
+    }, 
         []
     )
 
@@ -57,7 +60,6 @@ export const CatEdit = () => {
             fetch(`http://localhost:8088/cats/${catId}`)
             .then(res => res.json())
             .then((data) => {
-                // const singleCat = data[0]
                 setCat(data)
             })
         },
@@ -65,11 +67,26 @@ export const CatEdit = () => {
     )
 
     const currentColony = () => {
-        if(cat.id === colonyCats.catId) {
-            return `${cat.name} is currently in ${colonyCats?.colony?.nickname}`}
+        if (currentCatColony) {
+            return `${cat.name} is currently in ${currentCatColony?.colony?.nickname}`}
         else {
             return ""
         }}
+    
+    const deleteFromCurrentColony = () => {
+        if (currentCatColony) {
+        return <button onClick={() => {
+            fetch(`http://localhost:8088/colonyCats?_expand=colony&catId=${catId}`, {
+            method: "DELETE",
+            })
+            .then(() => {
+            navigate(`/cat/${cat.id}/edit`)
+             }) 
+            }} className="cat_delete">Remove Cat from Current Colony</button>}
+        else {
+            return ""
+        }
+    }
 
 
     const handleSaveButtonClick = (e) => {
@@ -219,9 +236,10 @@ export const CatEdit = () => {
         </div>
     </fieldset>
     <fieldset>
+        <div className="currentColony">{currentColony()}</div>
+        <div className="profileButtons">{deleteFromCurrentColony()}</div>
         <div className="form-group">
         <label htmlFor="colony">Colony:</label>
-        <div>{currentColony()}</div> 
             <select required autoFocus className="colonyList" onChange={
                 (evt) => {
                     const copy = { ...colonyCat }

@@ -1,3 +1,15 @@
+import { useState } from "react"
+import { DailyLogForm } from "./DailyLogForm"
+import { DailyLogList } from "./DailyLogList"
+import { DailyLogSearch } from "./DailyLogSearch"
+
 export const DailyLogContainer = () => {
-    return <h1>Daily Log Form & Entries</h1>
+    const [searchTerms, setSearchTerms] = useState("")
+
+    return <>
+        <DailyLogForm />
+        <label>Search Entries:</label> 
+        <DailyLogSearch setterFunction={setSearchTerms}/>
+        <DailyLogList searchTermState={searchTerms}/>
+    </>
 }
