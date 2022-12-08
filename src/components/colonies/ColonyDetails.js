@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { ColonyCats } from "./ColonyCats"
 
 export const ColonyDetails = () => {
     const {colonyId} = useParams()
@@ -34,7 +35,7 @@ export const ColonyDetails = () => {
 
     return <>
         <div className="profileButtons">
-        {deleteButton()}
+        <button onClick={() => navigate("/dailylog")}>Create Daily Log Entry</button>
         </div>
         <article className="colonyProfile">
         <div><img width="150" src={colony.image} /> 
@@ -45,7 +46,12 @@ export const ColonyDetails = () => {
         <li>Location: {colony.location} </li>
         </ul>
 
-        {/* <UpdateCat catObject={cat} /> */}
+        <ColonyCats colonyObject={colony} />
+
+        <div className="profileButtons">
+        {deleteButton()}
+        </div>
+
         </article>
     </>
 }
