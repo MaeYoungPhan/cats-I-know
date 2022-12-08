@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { ColonyCats } from "./ColonyCats"
+import { ColonyLogEntries } from "./ColonyLogEntries"
 
 export const ColonyDetails = () => {
     const {colonyId} = useParams()
@@ -47,6 +48,7 @@ export const ColonyDetails = () => {
         </ul>
 
         <ColonyCats colonyObject={colony} />
+        <ColonyLogEntries colonyObject={colony} />
 
         <div className="profileButtons">
         {deleteButton()}
