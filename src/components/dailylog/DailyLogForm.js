@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 
-export const DailyLogForm = () => {
+export const DailyLogForm = ( {getAllEntries} ) => {
     const [colonies, setColonies] = useState([])
     const [filteredColonies, setFiltered] = useState([])
-    const [colonyLogEntries, setColonyLogEntries] = useState([])
     const [newLogEntry, updateNewLogEntry] = useState({
                 colonyId: 0,
                 food: false,
@@ -16,21 +15,6 @@ export const DailyLogForm = () => {
     
     const localKittyUser = localStorage.getItem("kitty_user")
     const kittyUserObject = JSON.parse(localKittyUser)
-
-    const getAllEntries = () => {
-        fetch(`http://localhost:8088/colonyLogEntries?_expand=colony`)
-            .then(res => res.json())
-            .then((logArray) => {
-                setColonyLogEntries(logArray)
-            })
-    }
-
-    useEffect(
-        () => {
-            getAllEntries()
-        },
-        []
-    )
 
     useEffect(
         () => {
@@ -71,9 +55,7 @@ export const DailyLogForm = () => {
             body: JSON.stringify(entryToSendToAPI)
         })
         .then(res => res.json())
-        .then(() => {
-            {getAllEntries()}
-             })
+        .then(getAllEntries)
         
     }
 
