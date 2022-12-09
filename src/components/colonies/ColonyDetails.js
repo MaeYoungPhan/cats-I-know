@@ -24,7 +24,7 @@ export const ColonyDetails = () => {
     //ToDo: Function for delete the cat
     const deleteButton = () => {
         return <button onClick={() => {
-        fetch(`http://localhost:8088/cats/${colonyId}`, {
+        fetch(`http://localhost:8088/colonies/${colonyId}`, {
         method: "DELETE",
     })
         .then(() => {
