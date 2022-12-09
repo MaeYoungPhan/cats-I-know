@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { DailyLogForm } from "./DailyLogForm"
 import "./DailyLog.css"
 
 export const DailyLogList = ( {searchTermState} ) => {
@@ -40,12 +41,13 @@ export const DailyLogList = ( {searchTermState} ) => {
     useEffect(
         () => {
             const myEntries = colonyLogEntries.filter(entry => entry.userId === kittyUserObject.id)
-            setFiltered(myEntries.sort(function(a,b){ return new Date(a.foundDate) - new Date(b.foundDate)}))
+            setFiltered(myEntries.sort(function(a,b){ return new Date(b.date) - new Date(a.date)}))
         },
         [colonyLogEntries]
     )
 
     return <>
+    <DailyLogForm getAllEntries= {getAllEntries} />
 
     <h2>Recent Entries</h2>
 

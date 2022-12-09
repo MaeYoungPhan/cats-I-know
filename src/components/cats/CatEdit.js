@@ -76,7 +76,7 @@ export const CatEdit = () => {
     const deleteFromCurrentColony = () => {
         if (currentCatColony) {
         return <button onClick={() => {
-            fetch(`http://localhost:8088/colonyCats?_expand=colony&catId=${catId}`, {
+            fetch(`http://localhost:8088/colonyCats/${currentCatColony.id}`, {
             method: "DELETE",
             })
             .then(() => {
@@ -112,9 +112,10 @@ export const CatEdit = () => {
                 colonyId: colonyCat.colonyId
             })
             })
+        .then(navigate(`/cat/${catId}`))
             }
             else {
-                navigate("/cats/:catId")
+                navigate(`/cat/${catId}`)
             }
         })
         
@@ -242,9 +243,12 @@ export const CatEdit = () => {
         <label htmlFor="colony">Colony:</label>
             <select required autoFocus className="colonyList" onChange={
                 (evt) => {
+                    if (currentCatColony) {
+                        window.alert("Cats can only be place in one colony. Remove cat from current colony to place in a new one.")
+                    } else {
                     const copy = { ...colonyCat }
                     copy.colonyId = parseInt(evt.target.value)
-                    setColonyCat(copy)
+                    setColonyCat(copy)}
                 }
             }
             ><option name="colonyList" className="form-control" defaultValue="">Add to Colony</option>

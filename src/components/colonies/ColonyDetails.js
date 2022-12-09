@@ -34,6 +34,20 @@ export const ColonyDetails = () => {
 
 }
 
+const timeDisplay = (feedingTime) => { 
+    let hours = parseFloat(feedingTime).toFixed(4)
+
+    if(hours>12){
+    hours -= 12
+    hours += (hours >= 12) ? " P.M." : " A.M."
+    return hours
+    }
+    else{
+    hours += (hours >= 12) ? " P.M." : " A.M."
+    return hours}
+
+}
+
     return <>
         <div className="profileButtons">
         <button onClick={() => navigate("/dailylog")}>Create Daily Log Entry</button>
@@ -42,7 +56,7 @@ export const ColonyDetails = () => {
         <div><img width="150" src={colony.image} /> 
         <header className="cat_header"> {colony.nickname} </header></div>
         <ul>
-        <li>Feeding Time: {colony.feedingTime} </li>
+        <li>Feeding Time: {timeDisplay(colony.feedingTime)} </li>
         <li>Date Created: {colony.dateCreated} </li>
         <li>Location: {colony.location} </li>
         </ul>

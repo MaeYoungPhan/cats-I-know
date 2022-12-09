@@ -7,6 +7,7 @@ import { ColonyList } from "../colonies/ColonyList"
 import { ColonyForm } from "../colonies/ColonyForm"
 import { ColonyDetails } from "../colonies/ColonyDetails"
 import { DailyLogContainer } from "../dailylog/DailyLogContainer"
+import { Dashboard } from "../dashboard/dashboard"
 
 export const ApplicationViews = () => {
 	return (
@@ -19,7 +20,8 @@ export const ApplicationViews = () => {
 				<Outlet />
 				</>
 			}>
-
+			
+			<Route path="dashboard" element={ <Dashboard /> } />
 			<Route path="cats" element={ <CatContainer /> } />
 			<Route path="cat/add" element={ <CatForm /> } />
 			<Route path="cat/:catId" element={ <CatDetails /> } />
