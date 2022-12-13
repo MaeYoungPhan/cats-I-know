@@ -1,5 +1,5 @@
 /* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
 
 /*Typography
 --------------------------------------------------------------*/
@@ -8,23 +8,23 @@ button,
 input,
 select,
 textarea {
-  color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
-  font-size: 14px;
+  color: #653E08;
+  font-family: "Cutive Mono", Arial, sans-serif;
+  font-size: 18px;
   line-height: 1.5;
 }
 
-body {
-    padding: 0 3rem;
-}
-
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+  font-family: "Cutive Mono", serif;
   letter-spacing: 2px;
 }
 
-p {
-  margin-bottom: 1.5em;
+p, div, footer {
+  color: #653E08;
+  font-family: "Cutive Mono", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 8px;
 }
 
 .title--main {

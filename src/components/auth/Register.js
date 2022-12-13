@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import "./Login.css"
+import catvideo from "./assets/kittens.mp4"
+import "./Register.css"
 
 export const Register = (props) => {
     const [user, setUser] = useState({
@@ -54,8 +55,12 @@ export const Register = (props) => {
 
     return (
         <main style={{ textAlign: "center" }}>
+        <video autoPlay loop muted className="myVideo">
+        <source src={catvideo} type="video/mp4" />
+        </video>
+        <section className="content">
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Create an Account for Cats I Know</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Register for Cats I Know</h1>
                 <fieldset>
                     <label htmlFor="fullName"> Full Name </label>
                     <input onChange={updateUser}
@@ -72,6 +77,7 @@ export const Register = (props) => {
                     <button type="submit"> Register </button>
                 </fieldset>
             </form>
+            </section>
         </main>
     )
 }

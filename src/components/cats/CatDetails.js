@@ -39,8 +39,10 @@ export const CatDetails = () => {
         {deleteButton()}
         </div>
         <article className="catProfile">
-        <div><img width="150" src={cat.image} /> 
-        <header className="cat_header"> {cat.name} </header></div>
+        <div><h2 className="cat_header"> {cat.name} </h2>
+        <img width="150" src={cat.image} />
+        <p><button className="profileButtons" onClick={() => navigate(`/cat/${cat.id}/editpic`)}>Edit Profile Picture</button></p>
+        </div>
         <ul>
         <li>Found Date: {cat.foundDate} </li>
         <li>Location: {cat.location} </li>

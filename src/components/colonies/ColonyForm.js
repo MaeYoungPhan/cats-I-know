@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import Axios from "axios"
 
 export const ColonyForm = () => {
     
+    const [imageSelected, setImageSelected] =useState("")
     const [newColony, updateNewColony] = useState({
                 nickname: "",
                 feedingTime: "",
@@ -18,13 +20,22 @@ export const ColonyForm = () => {
     const handleSaveColony = (e) => {
         e.preventDefault()
 
-        const colonyToSendToAPI = {
+        //Upload image to Cloudinary platform. Tutorial https://www.youtube.com/watch?v=Y-VgaRwWS3o
+        const formData = new FormData()
+        //Constructing the form data - add the imported file and upload preset
+        formData.append("file", imageSelected)
+        formData.append("upload_preset", "cattracker")
+
+        //Use Axios API to post photo to Cloudinary platform
+        Axios.post("https://api.cloudinary.com/v1_1/dungnytvx/image/upload", formData)
+            .then(response => {
+            const colonyToSendToAPI = {
             userId: kittyUserObject.id,
             nickname: newColony.nickname,
             location: "getCurrentPosition()",
             feedingTime: newColony.feedingTime,
             dateCreated: newColony.dateCreated,
-            image: newColony.image
+            image: response.data.url
         }
 
         return fetch(`http://localhost:8088/colonies`, {
@@ -39,7 +50,7 @@ export const ColonyForm = () => {
             navigate("/colonies")
         })
         
-    }
+    })}
 
     return (
         <form className="newCatForm">
@@ -103,17 +114,14 @@ export const ColonyForm = () => {
                     <label htmlFor="image">Image:</label>
                     <input
                         required autoFocus
-                        type="text"
+                        type="file"
                         className="form-control"
-                        placeholder="Picture URL"
-                        value={newColony.image}
                         onChange={
                             (evt) => {
-                                const copy = {...newColony}
-                                copy.image = evt.target.value
-                                updateNewColony(copy)
+                                setImageSelected(evt.target.files[0])
                             }
-                        } />
+                        } 
+                        />
                 </div>
             </fieldset>
             <button 

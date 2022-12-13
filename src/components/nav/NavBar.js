@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import { GiHollowCat } from "react-icons/gi"
 import "./NavBar.css"
 
 export const NavBar = () => {
@@ -6,6 +7,9 @@ export const NavBar = () => {
 
     return (
         <ul className="navbar">
+            <li className="navIcon">
+                <Link className="navbar__link" to="/dashboard">< GiHollowCat /></Link>
+            </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/dashboard">Dashboard</Link>
             </li>
