@@ -1,0 +1,51 @@
+body {
+  color: #1E1E1E;
+  font-family: "Cutive Mono", Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #fefeed;
+}
+
+.dashHeader {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.dashLogLine {
+    font-family: "Cutive Mono", Arial, sans-serif;
+    font-size: 16px;
+}
+
+.dashMain {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dashDiv {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.dashImg {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+.dashLink {
+    text-decoration: none;
+    font-family: "Cutive Mono", Arial, sans-serif;
+    text-align: center;
+    color: #653E08;
+    font-size: 18px;
+}
+
+.dashLink:hover {
+    background-color: rgb(213, 209, 135, .5);
+    border-radius: 30px;
+}

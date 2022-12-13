@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
+import catvideo from "./assets/kittens.mp4"
 import "./Login.css"
 
 export const Login = () => {
@@ -29,10 +30,15 @@ export const Login = () => {
 
     return (
         <main className="container--login">
-            <section>
+                    {/* /*<!-- The video -->*/}
+        <video autoPlay loop muted className="myVideo">
+        <source src={catvideo} type="video/mp4" />
+        </video>
+            <section className="content">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Cats I Know</h1>
-                    <h2>Welcome! Please sign in</h2>
+                    <h1 className="login--title">Cats I Know</h1>
+                    <p className="login--subtitle">Community cat management and observation</p>
+                    <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
@@ -47,10 +53,10 @@ export const Login = () => {
                             Sign in
                         </button>
                     </fieldset>
+                    <fieldset>
+                    <Link className="link--register" to="/register">Not a member yet?</Link> 
+                    </fieldset>
                 </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
     )

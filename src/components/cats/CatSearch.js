@@ -1,6 +1,6 @@
 export const CatSearch = ({setterFunction}) => {
     return (
-        <input
+        <input className="catSearch"
         onChange={
             (changeEvent) => {
                 setterFunction(changeEvent.target.value)

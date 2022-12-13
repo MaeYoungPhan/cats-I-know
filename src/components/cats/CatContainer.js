@@ -6,7 +6,9 @@ export const CatContainer = () => {
     const [searchTerms, setSearchTerms] = useState("")
 
     return <>
+        <article className="catContainer">
         <CatSearch setterFunction={setSearchTerms}/>
         <CatList searchTermState={searchTerms}/>
+        </article>
     </>
 }

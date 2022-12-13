@@ -1,15 +1,28 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #D5D187;
+    padding: 10px 60px;
+    margin-top: 0;
 }
 
 .navbar__item {
-    flex-basis: 20%;
     list-style-type: none;
 }
 
-.navbar__logout {
-    margin-left: auto;
+.navbar__link {
+    text-decoration: none;
+    font-family: "Cutive Mono", Arial, sans-serif;
+    text-align: center;
+    color: #653E08;
+    font-size: 18px;
+}
+
+.navIcon {
+    list-style: none;
+    align-self: center;
+    margin-top: 4px;
 }
 

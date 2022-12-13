@@ -6,6 +6,7 @@ export const CatEdit = () => {
     const [colonies, setColonies] = useState([])
     const [currentCatColony, setCurrentColony] = useState([])
     const [filteredColonies, setFiltered] = useState([])
+    const [imageSelected, setImageSelected] =useState([])
     const [colonyCat, setColonyCat] = useState({
         colonyId: 0
     })
@@ -87,7 +88,6 @@ export const CatEdit = () => {
             return ""
         }
     }
-
 
     const handleSaveButtonClick = (e) => {
         e.preventDefault()
@@ -213,24 +213,6 @@ export const CatEdit = () => {
                     (evt) => {
                         const copy = {...cat}
                         copy.shotDate = evt.target.value
-                        setCat(copy)
-                    }
-                } />
-        </div>
-    </fieldset>
-    <fieldset>
-        <div className="form-group">
-            <label htmlFor="image">Image:</label>
-            <input
-                required autoFocus
-                type="text"
-                className="form-control"
-                placeholder="Picture URL"
-                defaultValue={cat.image}
-                onChange={
-                    (evt) => {
-                        const copy = {...cat}
-                        copy.image = evt.target.value
                         setCat(copy)
                     }
                 } />

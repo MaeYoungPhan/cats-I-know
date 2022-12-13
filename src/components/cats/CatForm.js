@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+import Axios from "axios"
 
 export const CatForm = () => {
     const [colonies, setColonies] = useState([])
@@ -7,6 +8,7 @@ export const CatForm = () => {
     const [newColonyCat, updateNewColonyCat] = useState({
         colonyId: 0
     })
+    const [imageSelected, setImageSelected] =useState("")
     const [newCat, updateNewCat] = useState({
             name: "",
             foundDate: "",
@@ -45,11 +47,20 @@ export const CatForm = () => {
     const handleSaveCat = (e) => {
         e.preventDefault()
 
-        const catToSendToAPI = {
+        //Upload image to Cloudinary platform. Tutorial https://www.youtube.com/watch?v=Y-VgaRwWS3o
+        const formData = new FormData()
+        //Constructing the form data - add the imported file and upload preset
+        formData.append("file", imageSelected)
+        formData.append("upload_preset", "cattracker")
+
+        //Use Axios API to post photo to Cloudinary platform
+        Axios.post("https://api.cloudinary.com/v1_1/dungnytvx/image/upload", formData)
+            .then(response => {
+            const catToSendToAPI = {
             userId: kittyUserObject.id,
             name: newCat.name,
             foundDate: newCat.foundDate,
-            location: "newCat.getCurrentPosition()",
+            location: "getCurrentPosition()",
             fixed: newCat.fixed,
             microchip: newCat.microchip,
             vaccinated: newCat.vaccinated,
@@ -57,7 +68,7 @@ export const CatForm = () => {
             isOut: false,
             outReason: "",
             notes: newCat.notes,
-            image: newCat.image
+            image: response.data.url
         }
 
         return fetch(`http://localhost:8088/cats`, {
@@ -86,7 +97,7 @@ export const CatForm = () => {
             }
         })
         
-    }
+    })}
 
     return (
         <form className="newCatForm">
@@ -210,17 +221,14 @@ export const CatForm = () => {
                     <label htmlFor="image">Image:</label>
                     <input
                         required autoFocus
-                        type="text"
+                        type="file"
                         className="form-control"
-                        placeholder="Picture URL"
-                        value={newCat.image}
                         onChange={
                             (evt) => {
-                                const copy = {...newCat}
-                                copy.image = evt.target.value
-                                updateNewCat(copy)
+                                setImageSelected(evt.target.files[0])
                             }
-                        } />
+                        } 
+                        />
                 </div>
             </fieldset>
             <fieldset>

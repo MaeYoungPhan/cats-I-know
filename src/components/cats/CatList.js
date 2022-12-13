@@ -49,16 +49,16 @@ export const CatList = ( {searchTermState} ) => {
 
     <button onClick={ () => navigate("/cat/add")}>Add a Cat</button>
 
-    <h2>My Cats</h2>
+    <h2 className="catHeader">My Cats</h2>
 
     <article className="cats">
         {
             filteredCats.map(
                 (cat) => {
-                return <div className="cat" key={cat.id}>
-                    <img width="150" src={cat.image} />
-                    <Link to={`/cat/${cat.id}`}>{cat.name}</Link>
-                    <footer>Found: {cat.foundDate}</footer>
+                return <div className="catDiv" key={cat.id}>
+                    <img className="catImg" src={cat.image} />
+                    <p className="catLink--P"><Link className="catLink" to={`/cat/${cat.id}`}>{cat.name}</Link></p>
+                    <footer className="catDate">Found: {cat.foundDate}</footer>
                 </div>}
             )
         }
