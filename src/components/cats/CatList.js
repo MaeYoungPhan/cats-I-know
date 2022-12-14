@@ -47,7 +47,7 @@ export const CatList = ( {searchTermState} ) => {
 
     return <>
 
-    <button onClick={ () => navigate("/cat/add")}>Add a Cat</button>
+    <button className="interiorBtn" onClick={ () => navigate("/cat/add")}>Add a Cat</button>
 
     <h2 className="catHeader">My Cats</h2>
 

@@ -1,9 +1,19 @@
+.interiorBtn {
+    background-color: #a27a42;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/*Cat List Styling Begin*/
+
 .catContainer {
-    margin: 10px 20px;
+    margin: 20px 20px;
 }
 
 .catHeader {
     text-align: center;
+    margin-top: 15px;
 }
 
 .cats {
@@ -22,7 +32,7 @@
     display: flex;
     flex-direction: column;
     margin: 10px 20px;
-    background-color: #d5d187;
+    background-color: rgb(213, 209, 135, .9);
     border-radius: 30px;
     width: 220px;
     height: 300px;
@@ -32,6 +42,7 @@
     width: 200px;
     height: 150px;
     object-fit: cover;
+    object-position: 60% 0%;
     border-radius: 30px;
     align-self: center;
     margin: 8px;
@@ -47,15 +58,215 @@
 .catLink--P {
     text-align: center;
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .catLink--P:hover {
     background-color: rgb(135, 138, 59, .5);
     border-radius: 30px;
+    font-weight: 600;
 }
 
 .catDate {
     text-align: center;
     font-size: 16px;
     margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.catSearch {
+    margin: 10px 40px;
+    border-radius: 30px;
+    padding: 2px 5px;
+}
+
+/*Cat Details Styling Begin*/
+
+.catProfile {
+    margin-top: 30px;
+}
+
+.profileButtons, .catProfileForm {
+    margin: 0 30px;
+}
+
+.deleteBtn {
+    background-color: #a24242;
+    border-radius: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.deleteCat {
+    margin-left: 30px;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    border-radius: 30px;
+    width: 220px;
+    height: 300px;
+    perspective: 1000px; /* 3D effect */
+    margin-left: 35px;
+  }
+  
+  /* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: rgb(213, 209, 135, .9);
+    color: #653E08;
+    border-radius: 30px;
+    text-align: center;
+  }
+  
+  /* Style the back side */
+.flip-card-back {
+    background-color: rgb(135, 138, 59);
+    color: #fefeed;
+    border-radius: 30px;
+    transform: rotateY(180deg);
+    text-align: left;
+  }
+
+.cat_header{
+    margin-bottom: 10px;
+  }
+
+.catImg--details {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 60% 0%;
+    border-radius: 30px;
+}
+
+.picEditBtn {
+    background-color: #a27a42;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+.catDetails--top {
+    font-size: 15px;
+    color: #fefeed;
+    line-height: 1;
+    margin-bottom: 0;
+    margin-left: 15px;
+    margin-top: 50px;
+    font-weight: 600;
+}
+
+.catDetails{
+    font-size: 15px;
+    color: #fefeed;
+    line-height: 1;
+    margin-bottom: 0;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+/*Cat Update Styling Begin*/
+
+.form-group {
+    margin: 0px; 
+}
+
+.form-notes {
+    display: block;
+    width: 80%;
+    height: 150px;
+    padding: 0 .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/*Edit Cat Styling Begin*/
+
+.newCatForm {
+    margin-left: 30px;
+}
+
+.catForm_title {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.form-ctrl-edit {
+    display: block;
+    width: 50%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.checkboxes {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.colonyListLabel {
+    display:flex;
+    margin-top: 20px;
+}
+
+.colonyList {
+    display:flex;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+/*Add Cat Styling Begin*/
+
+.fileUpload {
+    display: inline-block;
+    width: 25%;
+    height: fit-content;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

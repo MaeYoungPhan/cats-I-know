@@ -29,28 +29,33 @@ export const CatDetails = () => {
         .then(() => {
             navigate("/cats")
         }) 
-    }} className="cat_delete">Delete Cat</button>
+    }} className="deleteBtn deleteCat">Delete Cat</button>
 
 }
 
     return <>
+        <article className="catProfile">
+        <div className="flip-card">
+        <div className="flip-card-inner">
+        <div className="flip-card-front">
+        <h2 className="cat_header"> {cat.name} </h2>
+        <img className="catImg--details" src={cat.image} />
+        <p><button className="picEditBtn" onClick={() => navigate(`/cat/${cat.id}/editpic`)}>Edit Profile Picture</button></p>
+        </div>
+        <div className="flip-card-back">
+        <p className="catDetails--top">Found Date:{cat.foundDate} </p>
+        <p className="catDetails">Location: {cat.location} </p>
+        <p className="catDetails"> Spayed/Neutered: {cat.fixed ? "☑️" : "❌"} </p>
+        <p className="catDetails"> Microchipped: {cat.microchip ? "☑️" : "❌"} </p>
+        <p className="catDetails"> Vaccinated: {cat.vaccinated ? "☑️" : "❌"} </p>
+        <p className="catDetails"> Date Vaccinated: {cat.shotDate} </p>
+        </div>
+        </div>
+        </div>
         <div className="profileButtons">
-        <button onClick={() => navigate(`/cat/${cat.id}/edit`)}>Edit Cat</button>
+        <button className="interiorBtn" onClick={() => navigate(`/cat/${cat.id}/edit`)}>Edit Cat</button>
         {deleteButton()}
         </div>
-        <article className="catProfile">
-        <div><h2 className="cat_header"> {cat.name} </h2>
-        <img width="150" src={cat.image} />
-        <p><button className="profileButtons" onClick={() => navigate(`/cat/${cat.id}/editpic`)}>Edit Profile Picture</button></p>
-        </div>
-        <ul>
-        <li>Found Date: {cat.foundDate} </li>
-        <li>Location: {cat.location} </li>
-        <li> Spayed/Neutered: {cat.fixed ? "✅" : "❌"} </li>
-        <li> Microchipped: {cat.microchip ? "✅" : "❌"} </li>
-        <li> Vaccinated: {cat.vaccinated ? "✅" : "❌"} </li>
-        <li> Date Vaccinated: {cat.shotDate} </li>
-        </ul>
 
         <UpdateCat catObject={cat} />
         </article>

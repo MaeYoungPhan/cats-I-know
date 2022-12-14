@@ -33,7 +33,7 @@ export const UpdateCat = ( {catObject} ) => {
                     <input
                     required autoFocus
                     type="text"
-                    className="form-control"
+                    className="form-notes"
                     placeholder="Notes about this cat"
                     defaultValue={catObject.notes}
                     onChange={
@@ -79,7 +79,7 @@ export const UpdateCat = ( {catObject} ) => {
             </fieldset>
             <button 
             onClick = {(clickEvent) => handleSaveButtonClick(clickEvent)}
-            className="btn btn-primary">
+            className="interiorBtn">
                 Save Updates
             </button>
         </form>

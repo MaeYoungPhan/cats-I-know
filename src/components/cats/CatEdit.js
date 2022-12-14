@@ -83,7 +83,7 @@ export const CatEdit = () => {
             .then(() => {
             navigate(`/cat/${cat.id}/edit`)
              }) 
-            }} className="cat_delete">Remove Cat from Current Colony</button>}
+            }} className="deleteBtn">Remove Cat from Current Colony</button>}
         else {
             return ""
         }
@@ -129,7 +129,7 @@ export const CatEdit = () => {
             <input
             required autoFocus
             type="text"
-            className="form-control"
+            className="form-ctrl-edit"
             placeholder="Name this cat"
             defaultValue={cat.name}
             onChange={
@@ -147,7 +147,7 @@ export const CatEdit = () => {
             <input
                 required autoFocus
                 type="date"
-                className="form-control"
+                className="form-ctrl-edit"
                 defaultValue={cat.foundDate}
                 onChange={
                     (evt) => {
@@ -158,6 +158,7 @@ export const CatEdit = () => {
                 } />
         </div>
     </fieldset>
+    <section className = "checkboxes">
     <fieldset>
         <div className="form-group">
             <label htmlFor="fixed">Spayed/Neutered:</label>
@@ -200,13 +201,14 @@ export const CatEdit = () => {
                 } />
         </div>
     </fieldset>
+    </section>
     <fieldset>
         <div className="form-group">
             <label htmlFor="date">Shot Date:</label>
             <input
                 required autoFocus
                 type="text"
-                className="form-control"
+                className="form-ctrl-edit"
                 placeholder="MM/DD/YYYY or none"
                 defaultValue={cat.shotDate}
                 onChange={
@@ -220,9 +222,9 @@ export const CatEdit = () => {
     </fieldset>
     <fieldset>
         <div className="currentColony">{currentColony()}</div>
-        <div className="profileButtons">{deleteFromCurrentColony()}</div>
+        <div>{deleteFromCurrentColony()}</div>
         <div className="form-group">
-        <label htmlFor="colony">Colony:</label>
+        <label className="colonyListLabel" htmlFor="colony">Colony:</label>
             <select required autoFocus className="colonyList" onChange={
                 (evt) => {
                     if (currentCatColony) {
@@ -249,7 +251,7 @@ export const CatEdit = () => {
     </fieldset>
     <button 
     onClick = {(clickEvent) => handleSaveButtonClick(clickEvent)}
-    className="btn btn-primary">
+    className="interiorBtn">
         Save Changes
     </button>
 </form>)
