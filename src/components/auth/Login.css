@@ -95,4 +95,11 @@ fieldset {
 .login--subtitle {
     font-size: 18px;
     margin-top: 0;
+    color: #fefeed;
+}
+
+.loginBtn {
+    background-color: rgb(30, 30, 30, .9);
+    border-radius: 30px;
+    text-align: center;
 }

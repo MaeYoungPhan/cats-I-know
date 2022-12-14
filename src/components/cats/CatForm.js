@@ -222,7 +222,7 @@ export const CatForm = () => {
                     <input
                         required autoFocus
                         type="file"
-                        className="form-control"
+                        className="fileUpload"
                         onChange={
                             (evt) => {
                                 setImageSelected(evt.target.files[0])
@@ -257,7 +257,7 @@ export const CatForm = () => {
             </fieldset>
             <button 
             onClick = {(clickEvent) => handleSaveCat(clickEvent)}
-            className="btn btn-primary">
+            className="interiorBtn">
                 Add Cat
             </button>
         </form>
