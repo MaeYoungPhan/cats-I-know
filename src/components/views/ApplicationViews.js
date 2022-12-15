@@ -9,6 +9,7 @@ import { ColonyForm } from "../colonies/ColonyForm"
 import { ColonyDetails } from "../colonies/ColonyDetails"
 import { DailyLogContainer } from "../dailylog/DailyLogContainer"
 import { Dashboard } from "../dashboard/dashboard"
+import { Map } from "../map/Map"
 
 export const ApplicationViews = () => {
 	return (
@@ -29,6 +30,7 @@ export const ApplicationViews = () => {
 			<Route path="colony/add" element={ <ColonyForm /> } />
 			<Route path="colony/:colonyId" element={ <ColonyDetails /> } />
 			<Route path="dailylog" element={ <DailyLogContainer /> } />
+			<Route path="map" element={ <Map /> } />
 
 			</Route>
 		</Routes>)

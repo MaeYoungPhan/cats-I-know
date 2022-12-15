@@ -32,7 +32,7 @@ export const UpdateCat = ( {catObject} ) => {
                 <label htmlFor="notes">Notes:</label>
                     <input
                     required autoFocus
-                    type="text"
+                    type="textarea"
                     className="form-notes"
                     placeholder="Notes about this cat"
                     defaultValue={catObject.notes}
