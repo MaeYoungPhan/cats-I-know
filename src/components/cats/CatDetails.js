@@ -40,7 +40,6 @@ export const CatDetails = () => {
         <div className="flip-card-front">
         <h2 className="cat_header"> {cat.name} </h2>
         <img className="catImg--details" src={cat.image} />
-        <p><button className="picEditBtn" onClick={() => navigate(`/cat/${cat.id}/editpic`)}>Edit Profile Picture</button></p>
         </div>
         <div className="flip-card-back">
         <p className="catDetails--top">Found Date:{cat.foundDate} </p>
@@ -49,6 +48,7 @@ export const CatDetails = () => {
         <p className="catDetails"> Microchipped: {cat.microchip ? "☑️" : "❌"} </p>
         <p className="catDetails"> Vaccinated: {cat.vaccinated ? "☑️" : "❌"} </p>
         <p className="catDetails"> Date Vaccinated: {cat.shotDate} </p>
+        <p><button className="picEditBtn" onClick={() => navigate(`/cat/${cat.id}/editpic`)}>Edit Profile Picture</button></p>
         </div>
         </div>
         </div>
