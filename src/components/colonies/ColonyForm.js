@@ -61,7 +61,7 @@ export const ColonyForm = () => {
                     <input
                     required autoFocus
                     type="text"
-                    className="form-control"
+                    className="form-ctrl-edit"
                     placeholder="Name this colony"
                     value={newColony.nickname}
                     onChange={
@@ -79,7 +79,7 @@ export const ColonyForm = () => {
                     <input
                         required autoFocus
                         type="time"
-                        className="form-control"
+                        className="form-ctrl-edit"
                         placeholder=""
                         value={newColony.feedingTime}
                         onChange={
@@ -97,7 +97,7 @@ export const ColonyForm = () => {
                     <input
                         required autoFocus
                         type="date"
-                        className="form-control"
+                        className="form-ctrl-edit"
                         placeholder="MM/DD/YYYY"
                         defaultValue={newColony.dateCreated}
                         onChange={
@@ -115,7 +115,7 @@ export const ColonyForm = () => {
                     <input
                         required autoFocus
                         type="file"
-                        className="form-control"
+                        className="fileUpload"
                         onChange={
                             (evt) => {
                                 setImageSelected(evt.target.files[0])
@@ -126,7 +126,7 @@ export const ColonyForm = () => {
             </fieldset>
             <button 
             onClick = {(clickEvent) => handleSaveColony(clickEvent)}
-            className="btn btn-primary">
+            className="interiorBtn">
                 Create Colony
             </button>
         </form>

@@ -108,7 +108,7 @@ export const CatForm = () => {
                     <input
                     required autoFocus
                     type="text"
-                    className="form-control"
+                    className="form-ctrl-edit"
                     placeholder="Name this cat"
                     value={newCat.name}
                     onChange={
@@ -126,7 +126,7 @@ export const CatForm = () => {
                     <input
                         required autoFocus
                         type="date"
-                        className="form-control"
+                        className="form-ctrl-edit"
                         placeholder="MM/DD/YYYY"
                         value={newCat.foundDate}
                         onChange={
@@ -138,6 +138,7 @@ export const CatForm = () => {
                         } />
                 </div>
             </fieldset>
+            <section className = "checkboxes">
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="fixed">Spayed/Neutered:</label>
@@ -180,13 +181,14 @@ export const CatForm = () => {
                         } />
                 </div>
             </fieldset>
+            </section>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="date">Shot Date:</label>
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="form-ctrl-edit"
                         placeholder="MM/DD/YYYY or none"
                         value={newCat.shotDate}
                         onChange={
@@ -204,7 +206,7 @@ export const CatForm = () => {
                     <input
                     required autoFocus
                     type="text"
-                    className="form-control"
+                    className="form-notes-new"
                     placeholder="Notes about this cat"
                     value={newCat.notes}
                     onChange={
@@ -241,7 +243,7 @@ export const CatForm = () => {
                             updateNewColonyCat(copy)
                         }
                     }
-                    ><option name="colonyList" className="form-control" value="">Add to Colony</option>
+                    ><option name="colonyList" className="colonyList" value="">Add to Colony</option>
                         {filteredColonies.map(colony => {
                                 return <option
                                     name="colonyList"

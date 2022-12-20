@@ -6,7 +6,7 @@ export const DailyLogContainer = () => {
     const [searchTerms, setSearchTerms] = useState("")
 
     return <>
-        <label>Search Entries:</label> 
+        <label className="logSearchLabel">🔎</label> 
         <DailyLogSearch setterFunction={setSearchTerms}/>
         <DailyLogList searchTermState={searchTerms}/>
     </>

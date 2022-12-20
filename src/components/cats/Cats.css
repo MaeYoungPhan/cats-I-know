@@ -153,6 +153,7 @@
 .cat_header{
     margin-top: 30px;
     margin-bottom: 20px;
+    font-size: 20px;
   }
 
 .catImg--details {
@@ -176,7 +177,7 @@
     line-height: 1;
     margin-bottom: 0;
     margin-left: 15px;
-    margin-top: 50px;
+    margin-top: 30px;
     font-weight: 600;
 }
 
@@ -262,7 +263,7 @@
 .fileUpload {
     display: inline-block;
     width: fit-content;
-    height: fit-content;
+    height: 1.5rem;
     font-size: 1rem;
     font-weight: 400;
     color: #495057;
@@ -271,4 +272,37 @@
     border-radius: .25rem;
     -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-notes-new {
+    display: block;
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/*Image Edit Styling Beginning*/
+
+.ImageEditForm {
+    margin: 30px;
+}
+
+.imageForm_title {
+    margin-bottom: 30px;
+}
+
+.imageFrom-img {
+    width: 225px;
+    border-radius: 30px;
+    margin-bottom: 15px;
 }

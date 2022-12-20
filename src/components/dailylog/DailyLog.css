@@ -1,0 +1,90 @@
+.logSearch {
+    margin: 20px 10px 0 10px;
+    border-radius: 30px;
+    padding: 2px 5px;
+}
+
+.logSearchLabel {
+    margin-left: 75px;
+    font-weight: 400;
+}
+
+.logContainer {
+    /* margin-bottom: 20px;
+    padding-bottom: 15px; */
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.form-ctrl-log {
+    display: block;
+    width: 80%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-bottom: 8px;
+}
+
+.entryForm_title {
+    margin-bottom: 0;
+}
+
+.colonyListLog {
+    display:flex;
+    margin-top: 8px;
+}
+
+.logEntryDiv {
+    /* flex-basis: 33%;
+    margin-right: 30px; */
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px;
+    background-image: url("images/entryPaper.jpg");
+    border-radius: 30px;
+    width: 220px;
+    height: 300px;
+}
+
+.logEntriesHeader, .entryForm_title {
+    text-align: center;
+    /* background-color: rgb(213, 209, 135, .9); */
+}
+
+.logEntryDetails--top {
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.logEntryDetails{
+    font-size: 15px;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-weight: 400;
+    text-align: left;
+    text-indent: 26%;
+}
+
+.deleteBtnLog {
+    background-color: #a24242;
+    border-radius: 30px;
+    font-size: 14px;
+    text-align: center;
+    width: fit-content;
+    margin-top: 10px;
+    align-self: center;
+}

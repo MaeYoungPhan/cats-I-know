@@ -26,15 +26,15 @@ export const ColonyCats = ( {colonyObject} ) => {
     
     return <>
 
-    <h2>{colonyObject.nickname} Colony Cats</h2>
+    <h2 className="colonyCatsHeader">{colonyObject.nickname} Colony Cats</h2>
 
-    <article className="cats">
+    <article className="colonyCatsContainer">
         {
             filteredColonyCats.map(
                 (colonyCat) => {
-                return <div className="cat" key={colonyCat?.cat?.id}>
-                    <img width="150" src={colonyCat?.cat?.image} />
-                    <Link to={`/cat/${colonyCat?.cat?.id}`}>{colonyCat?.cat?.name}</Link>
+                return <div className="colonyCats" key={colonyCat?.cat?.id}>
+                    <img className="colonyCatimg" src={colonyCat?.cat?.image} />
+                    <p className="colonyCatsLink--P"><Link className="colonyCatsLink" to={`/cat/${colonyCat?.cat?.id}`}>{colonyCat?.cat?.name}</Link></p>
                 </div>}
             )
         }
