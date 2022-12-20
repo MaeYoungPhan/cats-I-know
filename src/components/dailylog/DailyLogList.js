@@ -47,19 +47,22 @@ export const DailyLogList = ( {searchTermState} ) => {
     )
 
     return <>
+    <section className="logContainer">
     <DailyLogForm getAllEntries= {getAllEntries} />
 
-    <h2>Recent Entries</h2>
+    <article className="entries">
 
-    <article className="cats">
+    <h2 className="logEntriesHeader">Recent Entries</h2>
+
         {
             filteredEntries.map(
                 (entry) => {
-                return <div className="entry" key={entry.id}>
-                    <Link to={`/colony/${entry.colonyId}`}>{entry?.colony?.nickname}</Link>
-                    <p>Visit Date: {entry.date}</p>
-                    <p> Fed: {entry.food ? "✅" : "❌"} </p>
-                    <p> Watered: {entry.water ? "✅" : "❌"} </p>
+                return <div className="logEntryDiv" key={entry.id}>
+                    <p className="logEntryDetails--top"><Link to={`/colony/${entry.colonyId}`}>{entry?.colony?.nickname}</Link></p>
+                    <p className="logEntryDetails">Visit Date:</p> 
+                    <p className="logEntryDetails">{entry.date}</p>
+                    <p className="logEntryDetails"> Fed: {entry.food ? "✅" : "❌"} </p>
+                    <p className="logEntryDetails"> Watered: {entry.water ? "✅" : "❌"} </p>
                     <button onClick={() => {
                      fetch(`http://localhost:8088/colonyLogEntries/${entry.id}`, {
                      method: "DELETE",
@@ -67,10 +70,11 @@ export const DailyLogList = ( {searchTermState} ) => {
                      .then(() => {
                      {getAllEntries()}
                       }) 
-                     }} className="cat_delete">Delete Entry</button></div>}
+                     }} className="deleteBtnLog">Delete Entry</button></div>}
             )
         }
     </article>
+    </section>
     </>
 
 }

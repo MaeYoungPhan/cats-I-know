@@ -37,22 +37,24 @@ export const ColonyList = () => {
     )
 
     return <>
+    <article className="catContainer">
 
-    <button onClick={ () => navigate("/colony/add")}>Add a Colony</button>
+    <h2 className="colonyHeader">My Colonies</h2>
 
-    <h2>My Colonies</h2>
+    <p className="addColony"><button className="interiorBtn" onClick={ () => navigate("/colony/add")}>Add a Colony</button></p>
 
     <article className="colonies">
         {
             filteredColonies.map(
                 (colony) => {
-                return <div className="cat" key={colony.id}>
-                    <img width="150" src={colony.image} />
-                    <Link to={`/colony/${colony.id}`}>{colony.nickname}</Link>
-                    <footer>Feeding Time: {colony.feedingTime}</footer>
+                return <div className="colonyDiv" key={colony.id}>
+                    <img className="colonyImg" src={colony.image} />
+                    <p className="colonyLink--P"><Link className="colonyLink" to={`/colony/${colony.id}`}>{colony.nickname}</Link></p>
+                    <footer className="colonyTime">Feeding Time: {colony.feedingTime}</footer>
                 </div>}
             )
         }
+    </article>
     </article>
     </>
 

@@ -33,17 +33,18 @@ export const ColonyLogEntries = ( {colonyObject} ) => {
 
     return <>
 
-    <h2>Recent Visits</h2>
+    <h2 className="colonyEntriesHeader">Recent Visits</h2>
 
-    <article className="cats">
+    <article className="colonyEntriesContainer">
         {
             filteredEntries.map(
                 (entry) => {
-                return <div className="entry" key={entry.id}>
-                    <p>Visit Date: {entry.date}</p>
-                    <p>{entry?.colony?.nickname}</p>
-                    <p> Fed: {entry.food ? "✅" : "❌"} </p>
-                    <p> Watered: {entry.water ? "✅" : "❌"} </p></div>}
+                return <div className="entryDiv" key={entry.id}>
+                    <p className="entryDetails--top">Visit Date:</p>
+                    <p className="entryDetails">{entry.date}</p>
+                    <p className="entryDetails">{entry?.colony?.nickname}</p>
+                    <p className="entryDetails"> Fed: {entry.food ? "✅" : "❌"} </p>
+                    <p className="entryDetails"> Watered: {entry.water ? "✅" : "❌"} </p></div>}
             )
         }
     </article>

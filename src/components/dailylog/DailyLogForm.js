@@ -60,19 +60,19 @@ export const DailyLogForm = ( {getAllEntries} ) => {
     }
 
     return (
-        <form className="newCatForm">
-            <h2 className="catForm_title">New Daily Log Entry</h2>
+        <form className="newEntryForm">
+            <h2 className="entryForm_title">New Daily Log Entry</h2>
             <fieldset>
                 <div className="form-group">
                 <label htmlFor="colony">Colony:</label>
-                    <select required autoFocus className="colonyList" onChange={
+                    <select required autoFocus className="colonyListLog" onChange={
                         (evt) => {
                             const copy = { ...newLogEntry }
                             copy.colonyId = parseInt(evt.target.value)
                             updateNewLogEntry(copy)
                         }
                     }
-                    ><option name="colonyList" className="form-control" value="">Colony</option>
+                    ><option name="colonyListLog" value="">Colony</option>
                         {filteredColonies.map(colony => {
                                 return <option
                                     name="colonyList"
@@ -88,7 +88,7 @@ export const DailyLogForm = ( {getAllEntries} ) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="food">Received Food</label>
+                    <label htmlFor="food">Received Food: </label>
                     <input type="checkbox" 
                         value={newLogEntry.food}
                         onChange={
@@ -102,7 +102,7 @@ export const DailyLogForm = ( {getAllEntries} ) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="water">Received Water</label>
+                    <label htmlFor="water">Received Water: </label>
                     <input type="checkbox" 
                         value={newLogEntry.water}
                         onChange={
@@ -120,7 +120,7 @@ export const DailyLogForm = ( {getAllEntries} ) => {
                     <input
                         required autoFocus
                         type="date"
-                        className="form-control"
+                        className="form-ctrl-log"
                         placeholder="MM/DD/YYYY"
                         defaultValue={newLogEntry.date}
                         onChange={
@@ -134,7 +134,7 @@ export const DailyLogForm = ( {getAllEntries} ) => {
             </fieldset>
             <button 
             onClick = {(clickEvent) => handleSaveEntry(clickEvent)}
-            className="btn btn-primary">
+            className="interiorBtn">
                 Submit Entry
             </button>
         </form>

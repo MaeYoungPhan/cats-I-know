@@ -54,15 +54,15 @@ export const CatPicEdit = () => {
         })})}
 
     return (<form className="ImageEditForm">
-    <h2 className="imageForm_title">{cat.name}'s Current Profile Picture</h2>
-    <img width="150" src={cat.image} /> 
+    <h2 className="imageForm_title">Current Profile Picture for: {cat.name}</h2>
+    <img className="imageFrom-img" src={cat.image} /> 
     <fieldset>
                 <div className="form-group">
                     <label htmlFor="image">Image:</label>
                     <input
                         required autoFocus
                         type="file"
-                        className="form-control"
+                        className="fileUpload"
                         onChange={
                             (evt) => {
                                 setImageSelected(evt.target.files[0])
@@ -73,7 +73,7 @@ export const CatPicEdit = () => {
             </fieldset>
             <button 
     onClick = {(clickEvent) => handleSaveButtonClick(clickEvent)}
-    className="btn btn-primary">
+    className="interiorBtn">
         Save New Picture
     </button>
     </form>)}

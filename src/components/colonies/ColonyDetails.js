@@ -30,7 +30,7 @@ export const ColonyDetails = () => {
         .then(() => {
             navigate("/colonies")
         }) 
-    }} className="cat_delete">Delete Colony</button>
+    }} className="deleteBtn">Delete Colony</button>
 
 }
 
@@ -49,17 +49,23 @@ const timeDisplay = (feedingTime) => {
 }
 
     return <>
-        <div className="profileButtons">
-        <button onClick={() => navigate("/dailylog")}>Create Daily Log Entry</button>
+        <article className="colonyContainer">
+        <div className="flip-card-colony">
+        <div className="flip-card-inner-colony">
+        <div className="flip-card-front-colony">
+        <h2 className="colony_header"> {colony.nickname}</h2>
+        <img className="colonyImg--details" src={colony.image} />
         </div>
-        <article className="colonyProfile">
-        <div><img width="150" src={colony.image} /> 
-        <header className="cat_header"> {colony.nickname} </header></div>
-        <ul>
-        <li>Feeding Time: {timeDisplay(colony.feedingTime)} </li>
-        <li>Date Created: {colony.dateCreated} </li>
-        <li>Location: {colony.location} </li>
-        </ul>
+        <div className="flip-card-back-colony">
+        <p className="colonyDetails--top">Feeding Time: {timeDisplay(colony.feedingTime)} </p>
+        <p className="colonyDetails">Date Created: {colony.dateCreated} </p>
+        <p className="colonyDetails">Location: {colony.location} </p>
+        </div>
+        </div>
+        </div>
+        <div className="profileButtons">
+        <button className="interiorBtn" onClick={() => navigate("/dailylog")}>Create Daily Log Entry</button>
+        </div>
 
         <ColonyCats colonyObject={colony} />
         <ColonyLogEntries colonyObject={colony} />
