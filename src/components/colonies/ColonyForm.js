@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
 import Axios from "axios"
 
 export const ColonyForm = () => {
@@ -7,16 +8,17 @@ export const ColonyForm = () => {
     const [imageSelected, setImageSelected] =useState("")
     const [newColony, updateNewColony] = useState({
                 nickname: "",
+                location: "",
                 feedingTime: "",
                 image: ""
         })
     
         let navigate = useNavigate()
+        const provider = new OpenStreetMapProvider();
     
     const localKittyUser = localStorage.getItem("kitty_user")
     const kittyUserObject = JSON.parse(localKittyUser)
 
-    
     const handleSaveColony = (e) => {
         e.preventDefault()
 
@@ -32,7 +34,9 @@ export const ColonyForm = () => {
             const colonyToSendToAPI = {
             userId: kittyUserObject.id,
             nickname: newColony.nickname,
-            location: "getCurrentPosition()",
+            location: newColony.location,
+            lat: 0,
+            long: 0,
             feedingTime: newColony.feedingTime,
             dateCreated: newColony.dateCreated,
             image: response.data.url
@@ -68,6 +72,24 @@ export const ColonyForm = () => {
                         (evt) => {
                             const copy = {...newColony}
                             copy.nickname = evt.target.value
+                            updateNewColony(copy)
+                        }
+                    } />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                <label htmlFor="location">Location:</label>
+                    <input
+                    required autoFocus
+                    type="text"
+                    className="form-ctrl-edit"
+                    placeholder="Approximate Street Address"
+                    value={newColony.location}
+                    onChange={
+                        (evt) => {
+                            const copy = {...newColony}
+                            copy.location = evt.target.value
                             updateNewColony(copy)
                         }
                     } />

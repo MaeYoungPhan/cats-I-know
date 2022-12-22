@@ -41,9 +41,18 @@ export const Register = (props) => {
                     window.alert("Account with that email address already exists")
                 }
                 else {
-                    // Good email, create user.
-                    registerNewUser()
-                }
+                    fetch(`http://localhost:8088/users?username=${user.username}`) 
+                    // Good email, check username.
+                    .then(res => res.json())
+                    .then(response => {
+                    if (response.length > 0) {
+                        // Duplicate username. No good.
+                        window.alert("Account with that username already exists")
+                    }
+                    else {
+                        // Good username, create user.
+                        registerNewUser()
+                }})}
             })
     }
 
@@ -66,6 +75,12 @@ export const Register = (props) => {
                     <input onChange={updateUser}
                            type="text" id="fullName" className="form-control"
                            placeholder="Enter your name" required autoFocus />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="username"> Username </label>
+                    <input onChange={updateUser}
+                           type="text" id="username" className="form-control"
+                           placeholder="Select a username" required autoFocus />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
