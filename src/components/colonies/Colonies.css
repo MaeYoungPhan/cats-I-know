@@ -82,7 +82,7 @@
 }
 
 .profileButtons {
-    margin: 0 30px;
+    margin: 0 35px;
 }
 
 .deleteBtn {
@@ -92,58 +92,36 @@
     text-align: center;
 }
 
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-.flip-card-colony {
+
+/* The colony card container*/
+.colony-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     border-radius: 30px;
-    width: 220px;
-    height: 300px;
-    perspective: 1000px; /* 3D effect */
+    background-color: rgb(135, 138, 59, .85);
+    width: 600px;
+    height: 250px;
     margin-left: 35px;
   }
   
-  /* This container is needed to position the front and back side */
-.flip-card-inner-colony {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card-colony:hover .flip-card-inner-colony {
-    transform: rotateY(180deg);
-  }
-  
-  /* Position the front and back side */
-.flip-card-front-colony, .flip-card-back-colony {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
-  
-  /* Style the front side (fallback if image is missing) */
-.flip-card-front-colony {
-    background-color: rgb(101, 62, 8, .9);
+  /* Style the left*/
+.colony-card-left {
     color: #fefeed;
     border-radius: 30px;
     text-align: center;
+    padding-left: 35px;
   }
   
-  /* Style the back side */
-.flip-card-back-colony {
-    background-color: rgb(135, 138, 59, .9);
+  /* Style the right side */
+.colony-card-right {
     color: #fefeed;
     border-radius: 30px;
-    transform: rotateY(180deg);
     text-align: left;
+    padding-left: 35px;
   }
 
 .colony_header{
-    margin-top: 30px;
-    margin-bottom: 20px;
     font-size: 20px;
   }
 
@@ -156,17 +134,17 @@
 }
 
 .colonyDetails--top {
-    font-size: 15px;
+    font-size: 16px;
     color: #fefeed;
     line-height: 1;
+    padding-top: 40px;
     margin-bottom: 20px;
     margin-left: 15px;
-    margin-top: 80px;
     font-weight: 600;
 }
 
 .colonyDetails{
-    font-size: 15px;
+    font-size: 16px;
     color: #fefeed;
     line-height: 1;
     margin-bottom: 20px;

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
 import Axios from "axios"
 
 export const CatForm = () => {
@@ -12,6 +13,7 @@ export const CatForm = () => {
     const [newCat, updateNewCat] = useState({
             name: "",
             foundDate: "",
+            location: "",
             fixed: false,
             microchip: false,
             vaccinated: false,
@@ -21,6 +23,7 @@ export const CatForm = () => {
     })
 
     let navigate = useNavigate()
+    const provider = new OpenStreetMapProvider();
 
     const localKittyUser = localStorage.getItem("kitty_user")
     const kittyUserObject = JSON.parse(localKittyUser)
@@ -60,7 +63,9 @@ export const CatForm = () => {
             userId: kittyUserObject.id,
             name: newCat.name,
             foundDate: newCat.foundDate,
-            location: "getCurrentPosition()",
+            location: newCat.location,
+            lat: 0,
+            long: 0,
             fixed: newCat.fixed,
             microchip: newCat.microchip,
             vaccinated: newCat.vaccinated,
@@ -136,6 +141,24 @@ export const CatForm = () => {
                                 updateNewCat(copy)
                             }
                         } />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                <label htmlFor="location">Location:</label>
+                    <input
+                    required autoFocus
+                    type="text"
+                    className="form-ctrl-edit"
+                    placeholder="Approximate Street Address"
+                    value={newCat.location}
+                    onChange={
+                        (evt) => {
+                            const copy = {...newCat}
+                            copy.location = evt.target.value
+                            updateNewCat(copy)
+                        }
+                    } />
                 </div>
             </fieldset>
             <section className = "checkboxes">
@@ -249,7 +272,7 @@ export const CatForm = () => {
                                     name="colonyList"
                                     className="form-control"
                                     value={colony.id}
-                                    key={`location--${colony.id}`}
+                                    key={`colony--${colony.id}`}
                                 >{colony.nickname}</option>
                             }
                             )

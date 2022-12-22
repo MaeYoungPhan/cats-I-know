@@ -50,18 +50,18 @@ const timeDisplay = (feedingTime) => {
 
     return <>
         <article className="colonyContainer">
-        <div className="flip-card-colony">
-        <div className="flip-card-inner-colony">
-        <div className="flip-card-front-colony">
+        <div className="colony-card">
+        {/* <div className="flip-card-inner-colony"> */}
+        <div className="colony-card-left">
         <h2 className="colony_header"> {colony.nickname}</h2>
         <img className="colonyImg--details" src={colony.image} />
         </div>
-        <div className="flip-card-back-colony">
-        <p className="colonyDetails--top">Feeding Time: {timeDisplay(colony.feedingTime)} </p>
-        <p className="colonyDetails">Date Created: {colony.dateCreated} </p>
-        <p className="colonyDetails">Location: {colony.location} </p>
+        <div className="colony-card-right">
+        <p className="colonyDetails--top">🕑 Feeding Time: {timeDisplay(colony.feedingTime)} </p>
+        <p className="colonyDetails">🎂 Date Created: {colony.dateCreated} </p>
+        <p className="colonyDetails">📍 Location: {colony.location} </p>
         </div>
-        </div>
+        {/* </div> */}
         </div>
         <div className="profileButtons">
         <button className="interiorBtn" onClick={() => navigate("/dailylog")}>Create Daily Log Entry</button>
