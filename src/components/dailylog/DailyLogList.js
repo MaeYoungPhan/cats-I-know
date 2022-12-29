@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { DailyLogForm } from "./DailyLogForm"
+import { DailyCats } from "./DailyCats"
+import Collapsible from 'react-collapsible'
 import "./DailyLog.css"
 
 export const DailyLogList = ( {searchTermState} ) => {
@@ -57,10 +59,12 @@ export const DailyLogList = ( {searchTermState} ) => {
         {
             filteredEntries.map(
                 (entry) => {
+
                 return <div className="logEntryDiv" key={entry.id}>
                     <p className="logEntryDetails--top"><Link to={`/colony/${entry.colonyId}`}>{entry?.colony?.nickname}</Link></p>
                     <p className="logEntryDetails">Visit Date:</p> 
                     <p className="logEntryDetails">{entry.date}</p>
+                    <Collapsible className="collapsible" openedClassName="collapsibleOpen" trigger="Cats Present ⌄"><DailyCats newEntryObject={entry}/></Collapsible>
                     <p className="logEntryDetails"> Fed: {entry.food ? "✅" : "❌"} </p>
                     <p className="logEntryDetails"> Watered: {entry.water ? "✅" : "❌"} </p>
                     <button onClick={() => {

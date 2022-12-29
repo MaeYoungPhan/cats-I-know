@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
+import { GiHollowCat } from "react-icons/gi";
 
 export const DailyCats = ( {newEntryObject} ) => {
 
-    const [colonyCats, setColonyCats] = useState([])
-    const [filteredColonyCats, setFilteredColony] = useState([])
-    // const [dailyCatsChecked, setDailyCatsChecked] = useState(new Array(filteredColonyCats.length).fill(false))
-    const [dailyCats, setDailyCats] = useState([])
+    const [dailyColonyCats, setDailyColonyCats] = useState([])
+    const [filteredDailyCats, setFilteredCats] = useState([])
 
     useEffect( () => {
-        fetch(`http://localhost:8088/colonyCats?_expand=cat`)
+        fetch(`http://localhost:8088/dailyColonyCats?_expand=cat`)
             .then(res => res.json())
-            .then((colonyCatArray) => {
-                setColonyCats(colonyCatArray)
+            .then((dailyCatsArray) => {
+                setDailyColonyCats(dailyCatsArray)
             })
     },
     []
@@ -19,48 +18,18 @@ export const DailyCats = ( {newEntryObject} ) => {
 
     useEffect(
         () => {
-            const currentColony = colonyCats.filter(colonyCat => colonyCat.colonyId === newEntryObject.colonyId)
-            setFilteredColony(currentColony)
+            const catsPresent = dailyColonyCats.filter(dailyCat => dailyCat.colonyLogEntryId === newEntryObject.id)
+            setFilteredCats(catsPresent)
         },
-        [colonyCats]
+        [dailyColonyCats]
     )
-
-    // const handleOnChange = (position) => {
-    //     const updatedCheckedState = dailyCatsChecked.map ((colonyCat, index) => 
-    //         index === position ? !colonyCat : colonyCat)
-
-    //         setDailyCatsChecked(updatedCheckedState)
-    // }
     
     return <>
-        <fieldset>
-            <div className="form-group">
-            <label htmlFor="dailyCats">Cats Present:</label>
-                {filteredColonyCats.map(colonyCat => {
-                    return <><label htmlFor="dailyCats">{colonyCat?.cat.name}</label>
-                        <input 
-                        onChange={(e) => {
-                        //add to list
-                        if (e.target.checked) {
-                            setDailyCats([
-                                ...dailyCats,
-                                {
-                                    catId: colonyCat?.cat?.id,
-                                },
-                            ])
-                        } else {
-                            //remove from list
-                        setDailyCats(
-                            dailyCats.filter((cat) => cat.id !== colonyCat?.cat?.id),
-                        )
-                        }}}
-                        type="checkbox"
-                        id={`checkbox-${colonyCat.id}`}
-                        name={colonyCat?.cat?.name}
-                        value={colonyCat.cat.id}
-                        /></>
-                    })}
-            </div>
-        </fieldset>
+        {(filteredDailyCats.length > 0)
+        ? filteredDailyCats.map((oneCat) => {
+          return <p className="dailyCatDetails">< GiHollowCat /> {oneCat?.cat?.name}</p>
+        })
+        : <p className="logEntryDetails">No Cats Present</p>
+        }
     </>
 }

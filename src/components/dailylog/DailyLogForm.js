@@ -90,10 +90,12 @@ export const DailyLogForm = ( {getAllEntries} ) => {
                 catId: cat.catId
             })
             })
+            .then(res => res.json())
+            .then(getAllEntries())
             })
             }
             else {
-                (getAllEntries())
+            (getAllEntries())
             }
         })
         }
