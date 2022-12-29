@@ -16,7 +16,7 @@ export const MapSearch = () => {
     <>
      <form onSubmit={handleSubmit}>
       <input type="text" value={text} onChange={(e) => setText(e.target.value)}/>
-     </form>
+     <button className="interiorBtn" onSubmit={handleSubmit}>Get Location</button></form>
      <div>
       {searchResults.map(item => <p>{item.label}</p>)}
      </div>
