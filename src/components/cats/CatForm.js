@@ -14,6 +14,8 @@ export const CatForm = () => {
             name: "",
             foundDate: "",
             location: "",
+            lat: 0,
+            long: 0,
             fixed: false,
             microchip: false,
             vaccinated: false,
@@ -64,8 +66,8 @@ export const CatForm = () => {
             name: newCat.name,
             foundDate: newCat.foundDate,
             location: newCat.location,
-            lat: 0,
-            long: 0,
+            lat: newCat.lat,
+            long: newCat.long,
             fixed: newCat.fixed,
             microchip: newCat.microchip,
             vaccinated: newCat.vaccinated,
@@ -98,7 +100,7 @@ export const CatForm = () => {
             })
             }
             else {
-                navigate("/cats")
+                navigate("cat/:catId/locationform")
             }
         })
         
@@ -143,7 +145,7 @@ export const CatForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                 <label htmlFor="location">Location:</label>
                     <input
@@ -160,7 +162,7 @@ export const CatForm = () => {
                         }
                     } />
                 </div>
-            </fieldset>
+            </fieldset> */}
             <section className = "checkboxes">
             <fieldset>
                 <div className="form-group">
