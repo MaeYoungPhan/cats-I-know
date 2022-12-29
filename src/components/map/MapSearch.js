@@ -10,6 +10,7 @@ export const MapSearch = () => {
       e.preventDefault()
       const results = await provider.search({ query: text });
       setResults(results)
+      
   }
   return (
     <>
