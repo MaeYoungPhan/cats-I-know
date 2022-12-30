@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
-// import { DailyCats } from "./DailyCats"
 
 export const DailyLogForm = ( {getAllEntries} ) => {
     const [colonies, setColonies] = useState([])
@@ -13,7 +12,7 @@ export const DailyLogForm = ( {getAllEntries} ) => {
                 water: false,
                 date: ""
         })
-        const [dailyCats, setDailyCats] = useState([])
+    const [dailyCats, setDailyCats] = useState([])
     
     let navigate = useNavigate()
     
@@ -127,9 +126,6 @@ export const DailyLogForm = ( {getAllEntries} ) => {
                     </select>
                 </div>
             </fieldset>
-            {/* <div>
-            <DailyCats newEntryObject={newLogEntry} />
-            </div> */}
             <fieldset>
             <div className="form-group">
             <label htmlFor="dailyCats">Cats Present:</label>
@@ -137,7 +133,7 @@ export const DailyLogForm = ( {getAllEntries} ) => {
                     return <><label htmlFor="dailyCats">{colonyCat?.cat.name}</label>
                         <input 
                         onChange={(e) => {
-                        //add to list
+                        //add to list code via https://stackoverflow.com/questions/66434403/how-to-get-multiple-checkbox-values-in-react-js
                         if (e.target.checked) {
                             setDailyCats([
                                 ...dailyCats,
