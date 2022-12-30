@@ -27,7 +27,7 @@ export const DailyCats = ( {newEntryObject} ) => {
     return <>
         {(filteredDailyCats.length > 0)
         ? filteredDailyCats.map((oneCat) => {
-          return <p className="dailyCatDetails">< GiHollowCat /> {oneCat?.cat?.name}</p>
+          return <p key={oneCat.id} className="dailyCatDetails">< GiHollowCat /> {oneCat?.cat?.name}</p>
         })
         : <p className="logEntryDetails">No Cats Present</p>
         }
