@@ -10,6 +10,8 @@ export const CatForm = () => {
         colonyId: 0
     })
     const [imageSelected, setImageSelected] =useState("")
+    const [searchResults, setResults] = useState([])
+    const [text, setText] = useState("")
     const [newCat, updateNewCat] = useState({
             name: "",
             foundDate: "",
@@ -48,6 +50,11 @@ export const CatForm = () => {
         },
         [colonies]
     )
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const results = await provider.search({ query: text });
+        setResults(results)}
 
     const handleSaveCat = (e) => {
         e.preventDefault()
@@ -100,7 +107,7 @@ export const CatForm = () => {
             })
             }
             else {
-                navigate("cat/:catId/locationform")
+                navigate("/cats")
             }
         })
         
@@ -145,15 +152,18 @@ export const CatForm = () => {
                         } />
                 </div>
             </fieldset>
-            {/* <fieldset>
+            <fieldset>
+            <input className="form-address-search" type="text" value={text} placeholder="address & zip code" onChange={(e) => setText(e.target.value)}/>
+            <button className="interiorBtn" onClick={handleSubmit}>Click to Set Location</button></fieldset>
+            <fieldset>
                 <div className="form-group">
-                <label htmlFor="location">Location:</label>
+                {searchResults.map(item => 
+                    <><label htmlFor="location">Location:</label>
                     <input
                     required autoFocus
                     type="text"
                     className="form-ctrl-edit"
-                    placeholder="Approximate Street Address"
-                    value={newCat.location}
+                    value={item.label}
                     onChange={
                         (evt) => {
                             const copy = {...newCat}
@@ -161,8 +171,34 @@ export const CatForm = () => {
                             updateNewCat(copy)
                         }
                     } />
+                <label>Longitude</label>
+                <input
+                    required autoFocus
+                    type="text"
+                    className="form-ctrl-edit"
+                    value={item.x}
+                    onChange={
+                        (evt) => {
+                            const copy = {...newCat}
+                            copy.long = evt.target.value
+                            updateNewCat(copy)
+                        }
+                    } />
+                <label>Latitude</label>
+                <input
+                    required autoFocus
+                    type="text"
+                    className="form-ctrl-edit"
+                    value={item.y}
+                    onChange={
+                        (evt) => {
+                            const copy = {...newCat}
+                            copy.lat = evt.target.value
+                            updateNewCat(copy)
+                        }
+                    } /></>)}
                 </div>
-            </fieldset> */}
+            </fieldset>
             <section className = "checkboxes">
             <fieldset>
                 <div className="form-group">
