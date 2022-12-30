@@ -153,51 +153,37 @@ export const CatForm = () => {
                 </div>
             </fieldset>
             <fieldset>
-            <input className="form-address-search" type="text" value={text} placeholder="address & zip code" onChange={(e) => setText(e.target.value)}/>
+            <input className="form-address-search" type="text" value={text} placeholder="Enter approximate address with zip code" onChange={(e) => setText(e.target.value)}/>
             <button className="interiorBtn" onClick={handleSubmit}>Click to Set Location</button></fieldset>
             <fieldset>
-                <div className="form-group">
-                {searchResults.map(item => 
-                    <><label htmlFor="location">Location:</label>
-                    <input
-                    required autoFocus
-                    type="text"
-                    className="form-ctrl-edit"
-                    value={item.label}
-                    onChange={
-                        (evt) => {
+            <div className="form-group">
+            <label className="searchResultsLabel" htmlFor="locationFound">Location Found:</label>
+                {searchResults.map(item => {
+                    return <>
+                        <p className="searchResults">{item.label}</p>
+                        <input 
+                        onChange={(e) => {
+                        //add to list code via https://stackoverflow.com/questions/66434403/how-to-get-multiple-checkbox-values-in-react-js
+                        if (e.target.checked) {
                             const copy = {...newCat}
-                            copy.location = evt.target.value
+                            copy.location = item.label
+                            copy.long = item.x
+                            copy.lat = item.y
                             updateNewCat(copy)
-                        }
-                    } />
-                <label>Longitude</label>
-                <input
-                    required autoFocus
-                    type="text"
-                    className="form-ctrl-edit"
-                    value={item.x}
-                    onChange={
-                        (evt) => {
+                        } else {
+                            //remove from list
                             const copy = {...newCat}
-                            copy.long = evt.target.value
+                            copy.location = ""
+                            copy.long = 0
+                            copy.lat = 0
                             updateNewCat(copy)
-                        }
-                    } />
-                <label>Latitude</label>
-                <input
-                    required autoFocus
-                    type="text"
-                    className="form-ctrl-edit"
-                    value={item.y}
-                    onChange={
-                        (evt) => {
-                            const copy = {...newCat}
-                            copy.lat = evt.target.value
-                            updateNewCat(copy)
-                        }
-                    } /></>)}
-                </div>
+                            window.alert("Please accept a valid address to continue or search again.")
+                        }}}
+                        type="checkbox"
+                        key={`checkbox-${item.id}`}
+                        /><label className="acceptLocation" htmlFor="acceptLocation">Accept Location?</label></>
+                    })}
+            </div>
             </fieldset>
             <section className = "checkboxes">
             <fieldset>

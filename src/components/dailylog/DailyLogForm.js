@@ -144,11 +144,11 @@ export const DailyLogForm = ( {getAllEntries} ) => {
                         } else {
                             //remove from list
                         setDailyCats(
-                            dailyCats.filter((cat) => cat.id !== colonyCat?.cat?.id),
+                            dailyCats.filter((cat) => cat.catId !== colonyCat?.cat?.id),
                         )
                         }}}
                         type="checkbox"
-                        id={`checkbox-${colonyCat.id}`}
+                        key={`checkbox-${colonyCat.id}`}
                         name={colonyCat?.cat?.name}
                         value={colonyCat.cat.id}
                         /></>

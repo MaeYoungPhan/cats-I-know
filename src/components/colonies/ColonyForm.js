@@ -10,14 +10,24 @@ export const ColonyForm = () => {
                 nickname: "",
                 location: "",
                 feedingTime: "",
+                location: "",
+                lat: 0,
+                long: 0,
                 image: ""
         })
+    const [searchResults, setResults] = useState([])
+    const [text, setText] = useState("")
     
         let navigate = useNavigate()
         const provider = new OpenStreetMapProvider();
     
     const localKittyUser = localStorage.getItem("kitty_user")
     const kittyUserObject = JSON.parse(localKittyUser)
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const results = await provider.search({ query: text });
+        setResults(results)}
 
     const handleSaveColony = (e) => {
         e.preventDefault()
@@ -35,8 +45,8 @@ export const ColonyForm = () => {
             userId: kittyUserObject.id,
             nickname: newColony.nickname,
             location: newColony.location,
-            lat: 0,
-            long: 0,
+            lat: newColony.lat,
+            long: newColony.long,
             feedingTime: newColony.feedingTime,
             dateCreated: newColony.dateCreated,
             image: response.data.url
@@ -78,22 +88,38 @@ export const ColonyForm = () => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
-                <label htmlFor="location">Location:</label>
-                    <input
-                    required autoFocus
-                    type="text"
-                    className="form-ctrl-edit"
-                    placeholder="Approximate Street Address"
-                    value={newColony.location}
-                    onChange={
-                        (evt) => {
+            <input className="form-address-search" type="text" value={text} placeholder="Enter approximate address with zip code" onChange={(e) => setText(e.target.value)}/>
+            <button className="interiorBtn" onClick={handleSubmit}>Click to Find Location</button>
+            </fieldset>
+            <fieldset>
+            <div className="form-group">
+            <label className="searchResultsLabel" htmlFor="locationFound">Location Found:</label>
+                {searchResults.map(item => {
+                    return <>
+                        <p className="searchResults">{item.label}</p>
+                        <input 
+                        onChange={(e) => {
+                        //add to list code via https://stackoverflow.com/questions/66434403/how-to-get-multiple-checkbox-values-in-react-js
+                        if (e.target.checked) {
                             const copy = {...newColony}
-                            copy.location = evt.target.value
+                            copy.location = item.label
+                            copy.long = item.x
+                            copy.lat = item.y
                             updateNewColony(copy)
-                        }
-                    } />
-                </div>
+                        } else {
+                            //remove from list
+                            const copy = {...newColony}
+                            copy.location = ""
+                            copy.long = 0
+                            copy.lat = 0
+                            updateNewColony(copy)
+                            window.alert("Please accept a valid address to continue or search again.")
+                        }}}
+                        type="checkbox"
+                        key={item.id}
+                        /><label className="acceptLocation" htmlFor="acceptLocation">Accept Location?</label></>
+                    })}
+            </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
