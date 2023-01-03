@@ -6,7 +6,6 @@ export const CatEdit = () => {
     const [colonies, setColonies] = useState([])
     const [currentCatColony, setCurrentColony] = useState([])
     const [filteredColonies, setFiltered] = useState([])
-    const [imageSelected, setImageSelected] =useState([])
     const [colonyCat, setColonyCat] = useState({
         colonyId: 0
     })
@@ -17,7 +16,6 @@ export const CatEdit = () => {
         microchip: false,
         vaccinated: false,
         shotDate: "",
-        image: ""
     })
 
     const navigate = useNavigate()
