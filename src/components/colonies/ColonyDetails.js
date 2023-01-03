@@ -34,19 +34,19 @@ export const ColonyDetails = () => {
 
 }
 
-const timeDisplay = (feedingTime) => { 
-    let hours = parseFloat(feedingTime).toFixed(4)
+// const timeDisplay = (feedingTime) => { 
+//     let hours = parseFloat(feedingTime).toFixed(4)
 
-    if(hours>12){
-    hours -= 12
-    hours += (hours >= 12) ? " P.M." : " A.M."
-    return hours
-    }
-    else{
-    hours += (hours >= 12) ? " P.M." : " A.M."
-    return hours}
+//     if(hours>12){
+//     hours -= 12
+//     hours += (hours >= 12) ? " P.M." : " A.M."
+//     return hours
+//     }
+//     else{
+//     hours += (hours >= 12) ? " P.M." : " A.M."
+//     return hours}
 
-}
+// }
 
     return <>
         <article className="colonyContainer">
@@ -57,7 +57,7 @@ const timeDisplay = (feedingTime) => {
         <img className="colonyImg--details" src={colony.image} />
         </div>
         <div className="colony-card-right">
-        <p className="colonyDetails--top">🕑 Feeding Time: {timeDisplay(colony.feedingTime)} </p>
+        <p className="colonyDetails--top">🕑 Feeding Time: {colony.feedingTime} </p>
         <p className="colonyDetails">🎂 Date Created: {colony.dateCreated} </p>
         <p className="colonyDetails">📍 Location: {colony.location} </p>
         </div>

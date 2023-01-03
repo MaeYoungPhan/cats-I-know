@@ -89,9 +89,9 @@ var colonyIcon = L.icon({
 
    return (
     <>
-    <div>
+    {/* <div>
     <MapSearch />
-    </div>
+    </div> */}
    <MapContainer center={[36.1627, -86.7816]} zoom={12} scrollWheelZoom={false}>
    <TileLayer
      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

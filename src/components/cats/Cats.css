@@ -105,7 +105,7 @@
 .flip-card {
     border-radius: 30px;
     width: 220px;
-    height: 300px;
+    height: 325px;
     perspective: 1000px; /* 3D effect */
     margin-left: 35px;
   }
@@ -151,7 +151,7 @@
   }
 
 .cat_header{
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 20px;
     font-size: 20px;
   }

@@ -90,6 +90,7 @@ export const DailyLogForm = ( {getAllEntries} ) => {
             })
             })
             .then(res => res.json())
+            .then(setDailyCats([]))
             .then(getAllEntries())
             })
             }
@@ -130,7 +131,7 @@ export const DailyLogForm = ( {getAllEntries} ) => {
             <div className="form-group">
             <label htmlFor="dailyCats">Cats Present:</label>
                 {filteredColonyCats.map(colonyCat => {
-                    return <><label htmlFor="dailyCats">{colonyCat?.cat.name}</label>
+                    return <><label key={`label-${colonyCat.id}`} htmlFor="dailyCats">{colonyCat?.cat.name}</label>
                         <input 
                         onChange={(e) => {
                         //add to list code via https://stackoverflow.com/questions/66434403/how-to-get-multiple-checkbox-values-in-react-js

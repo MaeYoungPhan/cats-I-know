@@ -20,7 +20,7 @@ export const DailyLogList = ( {searchTermState} ) => {
             const searchedEntries = colonyLogEntries.filter(entry => {
                 return entry.userId === kittyUserObject.id && entry?.colony?.nickname.toLowerCase().startsWith(searchTermState.toLowerCase())
             })
-            setFiltered(searchedEntries)
+            setFiltered(searchedEntries.sort(function(a,b){ return new Date(b.date) - new Date(a.date)}))
         },
         [searchTermState]
     )

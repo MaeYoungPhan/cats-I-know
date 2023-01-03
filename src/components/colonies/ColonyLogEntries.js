@@ -26,7 +26,7 @@ export const ColonyLogEntries = ( {colonyObject} ) => {
     useEffect(
         () => {
             const currentColonyEntries = colonyLogEntries.filter(entry => entry.userId === kittyUserObject.id && entry.colonyId === colonyObject.id)
-            setFiltered(currentColonyEntries.sort(function(a,b){ return new Date(b.foundDate) - new Date(a.foundDate)}))
+            setFiltered(currentColonyEntries.sort(function(a,b){ return new Date(b.date) - new Date(a.date)}))
         },
         [colonyLogEntries]
     )
