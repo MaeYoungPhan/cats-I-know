@@ -85,6 +85,10 @@
     margin: 0 35px;
 }
 
+.colonyEditBtn {
+    margin-left: 10px;
+}
+
 .deleteBtn {
     background-color: #a24242;
     border-radius: 30px;

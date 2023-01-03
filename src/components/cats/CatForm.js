@@ -105,6 +105,9 @@ export const CatForm = () => {
                 colonyId: newColonyCat.colonyId
             })
             })
+            .then(() => {
+                navigate("/cats")
+            })
             }
             else {
                 navigate("/cats")
