@@ -7,6 +7,7 @@ import { CatPicEdit } from "../cats/CatPicEdit"
 import { ColonyList } from "../colonies/ColonyList"
 import { ColonyForm } from "../colonies/ColonyForm"
 import { ColonyDetails } from "../colonies/ColonyDetails"
+import { ColonyEdit } from "../colonies/ColonyEdit"
 import { DailyLogContainer } from "../dailylog/DailyLogContainer"
 import { Dashboard } from "../dashboard/dashboard"
 import { Map } from "../map/Map"
@@ -29,6 +30,7 @@ export const ApplicationViews = () => {
 			<Route path="colonies" element={ <ColonyList /> } />
 			<Route path="colony/add" element={ <ColonyForm /> } />
 			<Route path="colony/:colonyId" element={ <ColonyDetails /> } />
+			<Route path="colony/:colonyId/edit" element={ <ColonyEdit /> } />
 			<Route path="dailylog" element={ <DailyLogContainer /> } />
 			<Route path="map" element={ <Map /> } />
 

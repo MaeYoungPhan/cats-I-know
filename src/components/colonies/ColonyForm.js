@@ -8,7 +8,6 @@ export const ColonyForm = () => {
     const [imageSelected, setImageSelected] =useState("")
     const [newColony, updateNewColony] = useState({
                 nickname: "",
-                location: "",
                 feedingTime: "",
                 location: "",
                 lat: 0,

@@ -65,6 +65,7 @@ export const ColonyDetails = () => {
         </div>
         <div className="profileButtons">
         <button className="interiorBtn" onClick={() => navigate("/dailylog")}>Create Daily Log Entry</button>
+        <button className="interiorBtn colonyEditBtn" onClick={() => navigate(`/colony/${colony.id}/edit`)}>Edit Colony</button>
         </div>
 
         <ColonyCats colonyObject={colony} />
