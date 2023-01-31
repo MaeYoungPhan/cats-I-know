@@ -5,7 +5,7 @@ export const UpdateCat = ( {catObject} ) => {
     const [cat, updateCat] = useState({
         isOut: catObject.isOut,
         outReason: catObject.outReason,
-        notes: catObject.notes,
+        notes: catObject.notes
     })
 
     const handleSaveButtonClick = (e) => {
