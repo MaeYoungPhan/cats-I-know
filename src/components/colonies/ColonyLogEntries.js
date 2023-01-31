@@ -51,5 +51,3 @@ export const ColonyLogEntries = ( {colonyObject} ) => {
     </>
 
 }
-
-{/* <Link to={`/dailylog/${entry.colonyId}`}></Link> */}
