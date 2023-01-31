@@ -1,17 +1,30 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 
-export const UpdateCat = ( {catObject} ) => {
+export const UpdateCat = () => {
 
+    const {catId} = useParams()
     const [cat, updateCat] = useState({
-        isOut: catObject.isOut,
-        outReason: catObject.outReason,
-        notes: catObject.notes
+        isOut: false,
+        outReason: "",
+        notes: ""
     })
+
+    useEffect(
+        () => {
+            fetch(`http://localhost:8088/cats/${catId}`)
+            .then(res => res.json())
+            .then((data) => {
+                updateCat(data)
+            })
+        },
+        [catId]
+    )
 
     const handleSaveButtonClick = (e) => {
         e.preventDefault()
 
-        return fetch(`http://localhost:8088/cats/${catObject.id}`, {
+        return fetch(`http://localhost:8088/cats/${cat.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -35,7 +48,7 @@ export const UpdateCat = ( {catObject} ) => {
                     type="textarea"
                     className="form-notes"
                     placeholder="Notes about this cat"
-                    defaultValue={catObject.notes}
+                    defaultValue={cat.notes}
                     onChange={
                         (evt) => {
                             const copy = {...cat}
@@ -49,7 +62,7 @@ export const UpdateCat = ( {catObject} ) => {
                 <div className="form-group">
                     <label htmlFor="out">Is Out:</label>
                     <input type="checkbox" 
-                        value={catObject.isOut} defaultChecked={catObject.isOut}
+                        checked={cat.isOut}
                         onChange={
                             (evt) => {
                                 const copy = {...cat}
@@ -67,7 +80,7 @@ export const UpdateCat = ( {catObject} ) => {
                     type="text"
                     className="form-control"
                     placeholder="Reason Cat Is Out"
-                    defaultValue={catObject.outReason}
+                    defaultValue={cat.outReason}
                     onChange={
                         (evt) => {
                             const copy = {...cat}
