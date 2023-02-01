@@ -86,6 +86,12 @@ If using [Cats-I-Know-API](https://github.com/MaeYoungPhan/cats-I-know-api), cat
 
 **Expected Result:** Browser navigates to /colonies and user's colonies list loads. Newly added colony now appears in the list (in alphabetical order.) New colony also appears on the map at /maps. Colony icons are green.
 
+## Planning
+
+[ERD](https://dbdiagram.io/d/6387742ebae3ed7c4543d7f0)
+
+[Wire Frame](https://miro.com/app/board/uXjVP-jm5D4=/?share_link_id=884827418866)
+
 ## Acknowledgements
 
 📸 Vanessa Spear for walking me through Axios and Cloudinary set up
@@ -93,12 +99,6 @@ If using [Cats-I-Know-API](https://github.com/MaeYoungPhan/cats-I-know-api), cat
 🌎 Shaina Couch for helping with Leaflet installs
 
 🐐 Sydney Dickson, Caroline Madison, Dakota Lambert and my colleagues in Cohort 60 for encouragement and keepin’ the vibes. 
-
-## Planning
-
-[ERD](https://dbdiagram.io/d/6387742ebae3ed7c4543d7f0)
-
-[Wire Frame](https://miro.com/app/board/uXjVP-jm5D4=/?share_link_id=884827418866)
 
 ## Created By
 
