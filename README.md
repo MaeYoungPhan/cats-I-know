@@ -2,6 +2,8 @@
 
 *Community cat management and observation*
 
+![Colony View](https://github.com/MaeYoungPhan/cats-I-know/blob/main/ColonyView.gif)
+
 ## Application Overview
 
 I spent many years volunteering and working in animal rescue. Within cat rescue, there is a group called “caretakers.” These are people who take care of outdoor, unowned cats. These cats, who may be strays, abandoned, or feral, are often referred to as community cats.
