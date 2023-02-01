@@ -52,7 +52,7 @@ export const ColonyDetails = () => {
         <button className="interiorBtn colonyEditBtn" onClick={() => navigate(`/colony/${colony.id}/edit`)}>Edit Colony</button>
         </div>
 
-        <ColonyCats colonyObject={colony} />
+        <ColonyCats />
         <ColonyLogEntries colonyObject={colony} />
 
         <div className="profileButtons">
