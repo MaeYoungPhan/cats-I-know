@@ -46,7 +46,7 @@ I initially built this app in two weeks as a final project for client-side cours
 
 This application does not currently require a password. Therefore the login and registration code written here is completely insecure and would not be implemented in a professional application of this product.
 
-### Meow, let's Get Started: 
+### Meow, let's get started: 
 
 1. Clone the application.
 
