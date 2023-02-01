@@ -88,6 +88,8 @@ If using [Cats-I-Know-API](https://github.com/MaeYoungPhan/cats-I-know-api), cat
 
 ## Planning
 
+![](https://github.com/MaeYoungPhan/cats-I-know/blob/main/CatsIKnow.png)
+
 [ERD](https://dbdiagram.io/d/6387742ebae3ed7c4543d7f0)
 
 [Wire Frame](https://miro.com/app/board/uXjVP-jm5D4=/?share_link_id=884827418866)
