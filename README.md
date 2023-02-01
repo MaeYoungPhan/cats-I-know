@@ -2,6 +2,12 @@
 
 *Community cat management and observation*
 
+### Cat View Preview
+
+![Cat View](https://github.com/MaeYoungPhan/cats-I-know/blob/main/CatsView.gif)
+
+### Colony Profile Preview
+
 ![Colony View](https://github.com/MaeYoungPhan/cats-I-know/blob/main/ColonyView.gif)
 
 ## Application Overview
