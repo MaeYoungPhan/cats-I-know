@@ -2,14 +2,6 @@
 
 *Community cat management and observation*
 
-### Cat View Preview
-
-![Cat View](https://github.com/MaeYoungPhan/cats-I-know/blob/main/CatsView.gif)
-
-### Colony Profile Preview
-
-![Colony View](https://github.com/MaeYoungPhan/cats-I-know/blob/main/ColonyView.gif)
-
 ## Application Overview
 
 I spent many years volunteering and working in animal rescue. Within cat rescue, there is a group called “caretakers.” These are people who take care of outdoor, unowned cats. These cats, who may be strays, abandoned, or feral, are often referred to as community cats.
@@ -19,6 +11,14 @@ I spent many years volunteering and working in animal rescue. Within cat rescue,
 Cats I Know allows caretakers to easily and efficiently monitor all cats and colonies in their care by allowing them to maintain vital information about each cat; including individual and colony (cat family) profiles, feeding schedules, and health records. In short, this is an app for community cat management and observation.
 
 I initially built this app in two weeks as a final project for client-side coursework.
+
+### Cat View Preview
+
+![Cat View](https://github.com/MaeYoungPhan/cats-I-know/blob/main/CatsView.gif)
+
+### Colony Profile Preview
+
+![Colony View](https://github.com/MaeYoungPhan/cats-I-know/blob/main/ColonyView.gif)
 
 ## Features
 * Users can create profiles for each cat and colony in their care.
