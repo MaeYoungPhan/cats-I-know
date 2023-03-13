@@ -62,7 +62,7 @@ npm start
 
 ## Usage
 
-I've written some basic test cases for the majority of the features of this app so you can make sure it's running properly. Two of the test cases are in this ReadMe, the rest can be found on the [Cats-I-Know-Tests Google Sheet.](https://docs.google.com/spreadsheets/d/1t8xkmpIjSax2Wn_f-KMAi_1d2yVX6Fm0FQsBOnCfxRE/edit?usp=sharing)
+Test cases are not currently included in the app, however, I've written some basic user stories for the majority of the features of this app so you can make sure it's running properly (or contribute to in-app testing.) Two of the user stories for fundamental features are in this ReadMe, the rest can be found on the [Cats-I-Know-Tests Google Sheet.](https://docs.google.com/spreadsheets/d/1t8xkmpIjSax2Wn_f-KMAi_1d2yVX6Fm0FQsBOnCfxRE/edit?usp=sharing)
 
 If using [Cats-I-Know-API](https://github.com/MaeYoungPhan/cats-I-know-api), catdaddy@catdaddy.com is suggested login for demo.
 
