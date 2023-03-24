@@ -39,6 +39,7 @@ I initially built this app in two weeks as a final project for client-side cours
 * Leaflet
 * leaflet-geosearch
 * react-collapsible
+* JSON server
 
 ## Installation
 
